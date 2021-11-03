@@ -6,7 +6,7 @@ class Data extends Equatable {
   final int limit;
   final int total;
   final int count;
-  final List<Character> characters;
+  final List<Character>? characters;
 
   const Data({
     required this.offset,
