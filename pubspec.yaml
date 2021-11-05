@@ -17,6 +17,9 @@ dependencies:
   stream_transform: ^2.0.0
   dartz: ^0.10.0
   dio: ^4.0.1
+  shimmer: ^2.0.0
+  google_fonts: ^2.1.0  
+  flutter_modular: ^4.2.0
 
 dev_dependencies:
   flutter_test:
