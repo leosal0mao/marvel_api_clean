@@ -7,7 +7,7 @@ class HttpAdapterImpl implements HttpAdapter {
   final String url;
   final Dio dio;
 
-  HttpAdapterImpl(this.url, this.dio);
+  HttpAdapterImpl({required this.url, required this.dio});
 
   @override
   Future<ResponseData> get({Map<String, dynamic>? queries}) async {

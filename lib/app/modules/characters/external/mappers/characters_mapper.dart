@@ -26,12 +26,4 @@ class CharactersMapper {
       throw CharactersMapperErrors(e.toString(), stack);
     }
   }
-
-  static Characters fromJson(String source) {
-    try {
-      return CharactersMapper.fromMap(json.decode(source));
-    } catch (e, stack) {
-      throw CharactersMapperErrors(e.toString(), stack);
-    }
-  }
 }

@@ -1,8 +1,6 @@
-import 'dart:convert';
-
-import 'package:marvel_api/app/modules/comics/domain/entities/entities.dart';
-import 'package:marvel_api/app/modules/comics/external/helpers/errors/errors.dart';
-import 'package:marvel_api/app/modules/comics/external/mappers/mappers.dart';
+import '../../domain/entities/entities.dart';
+import '../helpers/errors/errors.dart';
+import 'mappers.dart';
 
 class CharacterMapper {
   CharacterMapper._();
@@ -15,14 +13,6 @@ class CharacterMapper {
         description: map['description'],
         characterImage: CharacterImageMapper.fromMap(map['thumbnail']),
       );
-    } catch (e, stack) {
-      throw CharacterMapperErrors(e.toString(), stack);
-    }
-  }
-
-  static Character fromJson(String source) {
-    try {
-      return CharacterMapper.fromMap(json.decode(source));
     } catch (e, stack) {
       throw CharacterMapperErrors(e.toString(), stack);
     }

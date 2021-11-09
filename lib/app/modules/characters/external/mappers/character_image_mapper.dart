@@ -1,5 +1,5 @@
-import 'package:marvel_api/app/modules/comics/domain/entities/entities.dart';
-import 'package:marvel_api/app/modules/comics/external/helpers/errors/errors.dart';
+import '../../domain/entities/entities.dart';
+import '../helpers/errors/errors.dart';
 
 class CharacterImageMapper {
   CharacterImageMapper._();

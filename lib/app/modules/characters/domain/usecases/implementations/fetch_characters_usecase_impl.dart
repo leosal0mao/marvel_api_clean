@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:marvel_api/app/modules/comics/domain/repositories/repositories.dart';
+import '../../repositories/repositories.dart';
 
 import '../../../../../core/helpers/errors/failure.dart';
 import '../../dtos/dtos.dart';
