@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:marvel_api/app/core/helpers/errors/domain_error.dart';
 import '../../repositories/repositories.dart';
 
 import '../../../../../core/helpers/errors/failure.dart';
@@ -12,6 +13,10 @@ class FetchCharactersUsecaseImpl extends FetchCharactersUsecase {
   FetchCharactersUsecaseImpl({required this.repository});
   @override
   Future<Either<Failure, Characters>> call({required CharactersDto params}) {
+    if (!params.limit.isValid()) {
+      return Future.value(Left(DomainError(
+          message: params.limit.errorMessage, stackTrace: StackTrace.current)));
+    }
     return repository.fetchCharacters(params: params);
   }
 }

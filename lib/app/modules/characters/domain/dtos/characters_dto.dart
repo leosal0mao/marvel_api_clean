@@ -1,32 +1,33 @@
 import 'package:equatable/equatable.dart';
+import '../value_objects/limit.dart';
 
 class CharactersDto extends Equatable {
-  final String name;
-  final String nameStartsWith;
-  final int limit;
+  final String? name;
+  final String? nameStartsWith;
+  final Limit limit;
   final int offset;
 
-  const CharactersDto(
+  const CharactersDto({
     this.name,
     this.nameStartsWith,
-    this.limit,
-    this.offset,
-  );
+    required this.limit,
+    required this.offset,
+  });
 
   CharactersDto copyWith(
-      {String? name, String? nameStartsWith, int? limit, int? offset}) {
+      {String? name, String? nameStartsWith, Limit? limit, int? offset}) {
     return CharactersDto(
-      name ?? this.name,
-      nameStartsWith ?? this.nameStartsWith,
-      limit ?? this.limit,
-      offset ?? this.offset,
+      name: name ?? this.name,
+      nameStartsWith: nameStartsWith ?? this.nameStartsWith,
+      limit: limit ?? this.limit,
+      offset: offset ?? this.offset,
     );
   }
 
   Map<String, dynamic> toMap() => {
         'name': name,
         'nameStartsWith': nameStartsWith,
-        'limit': limit,
+        'limit': limit.value,
         'offset': offset,
       };
 

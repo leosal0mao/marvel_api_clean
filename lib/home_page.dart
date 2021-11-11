@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_api/app/core/widgets/character_card_widget.dart';
+
+import 'app/core/presenter/widgets/character_card_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView.builder(
-              itemCount: 3,
+              itemCount: 6,
               itemBuilder: (context, i) {
                 return CharacterCardWidget(
                     name: 'name $i',
