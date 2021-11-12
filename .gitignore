@@ -47,3 +47,4 @@ app.*.map.json
 
 #endpoints and apikeys
 /lib/app/core/endpoints/endpoints.dart
+assets/.env

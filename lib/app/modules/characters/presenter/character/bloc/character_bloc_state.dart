@@ -21,20 +21,20 @@ class CharacterBlocStateFailure extends CharacterBlocState {
   List<Object?> get props => [message];
 }
 
-class CharacterStateSucess extends CharacterBlocState {
-  final List<Characters>? characters;
+class CharacterBlocStateSucess extends CharacterBlocState {
+  final List<Characters> characters;
   final bool? isLoading;
 
-  CharacterStateSucess({
-    this.characters,
+  CharacterBlocStateSucess({
+    required this.characters,
     this.isLoading = false,
   });
 
-  CharacterStateSucess copyWith({
+  CharacterBlocStateSucess copyWith({
     List<Characters>? characters,
     bool? isLoading,
   }) {
-    return CharacterStateSucess(
+    return CharacterBlocStateSucess(
       characters: characters ?? this.characters,
       isLoading: isLoading ?? this.isLoading,
     );

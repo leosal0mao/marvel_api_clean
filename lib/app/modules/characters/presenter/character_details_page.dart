@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'package:marvel_api/app/modules/characters/domain/entities/entities.dart';
 import 'package:marvel_api/app/modules/characters/presenter/character/bloc/character_bloc_bloc.dart';
 
 class CharacterDetailsPage extends StatefulWidget {
-  const CharacterDetailsPage({Key? key}) : super(key: key);
+  final Character character;
+
+  const CharacterDetailsPage({
+    Key? key,
+    required this.character,
+  }) : super(key: key);
 
   @override
   _CharacterDetailsPageState createState() => _CharacterDetailsPageState();
