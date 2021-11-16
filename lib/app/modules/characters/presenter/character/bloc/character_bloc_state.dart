@@ -22,24 +22,24 @@ class CharacterBlocStateFailure extends CharacterBlocState {
 }
 
 class CharacterBlocStateSucess extends CharacterBlocState {
-  final List<Characters> characters;
+  final ResponseCharacters responseData;
   final bool? isLoading;
 
   CharacterBlocStateSucess({
-    required this.characters,
+    required this.responseData,
     this.isLoading = false,
   });
 
   CharacterBlocStateSucess copyWith({
-    List<Characters>? characters,
+    ResponseCharacters? responseData,
     bool? isLoading,
   }) {
     return CharacterBlocStateSucess(
-      characters: characters ?? this.characters,
+      responseData: responseData ?? this.responseData,
       isLoading: isLoading ?? this.isLoading,
     );
   }
 
   @override
-  List<Object?> get props => [characters, isLoading];
+  List<Object?> get props => [responseData, isLoading];
 }

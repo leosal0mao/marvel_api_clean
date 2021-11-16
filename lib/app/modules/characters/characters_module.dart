@@ -11,7 +11,7 @@ import 'presenter/character/bloc/character_bloc_bloc.dart';
 class CharacterModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind((i) => HttpAdapterImpl(dio: i.get(), url: '/characters')),
+        Bind((i) => HttpAdapterImpl(dio: i.get())),
         Bind((i) => CharacterRemoteDatasourceImpl(client: i.get())),
         Bind((i) => CharacterRepositoryImpl(datasource: i.get())),
         Bind((i) => FetchCharactersUsecaseImpl(repository: i.get())),

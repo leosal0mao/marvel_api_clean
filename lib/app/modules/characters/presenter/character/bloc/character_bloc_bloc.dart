@@ -19,22 +19,21 @@ class CharacterBlocBloc extends Bloc<CharacterBlocEvent, CharacterBlocState> {
       var response = await usecase(params: event.params);
       response.fold(
         (left) => emit(CharacterBlocStateFailure(left.message)),
-        (right) => emit(
-            CharacterBlocStateSucess(characters: right as List<Characters>)),
+        (right) => emit(CharacterBlocStateSucess(responseData: right)),
       );
     });
 
-    on<PaginateCharactersEvent>((event, emit) async {
-      emit((state as CharacterBlocStateSucess).copyWith(isLoading: true));
-      var response = await usecase(params: event.params);
-      response.fold(
-        (left) => null,
-        (right) {
-          return CharacterBlocStateSucess(
-              characters: (state as CharacterBlocStateSucess).characters
-                ..addAll(right as Iterable<Characters>));
-        },
-      );
-    });
+    // on<PaginateCharactersEvent>((event, emit) async {
+    //   emit((state as CharacterBlocStateSucess).copyWith(isLoading: true));
+    //   var response = await usecase(params: event.params);
+    //   response.fold(
+    //     (left) => null,
+    //     (right) {
+    //       return CharacterBlocStateSucess(
+    //           characters: (state as CharacterBlocStateSucess).characters
+    //             ..addAll(right as Iterable<ResponseCharacters>));
+    //     },
+    //   );
+    // });
   }
 }

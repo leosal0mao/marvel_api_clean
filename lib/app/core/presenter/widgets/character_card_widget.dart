@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_api/app/modules/characters/domain/entities/entities.dart';
 
 class CharacterCardWidget extends StatelessWidget {
-  final String name;
-  final String description;
-  final String image;
   final Function onTap;
+  final Character? character;
 
-  const CharacterCardWidget(
-      {Key? key,
-      required this.name,
-      required this.description,
-      required this.image,
-      required this.onTap})
-      : super(key: key);
+  const CharacterCardWidget({
+    Key? key,
+    required this.onTap,
+    required this.character,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +24,14 @@ class CharacterCardWidget extends StatelessWidget {
           children: [
             Flexible(
               flex: 1,
-              child: image == ''
+              child: character!.characterImage.path == ""
                   ? Image.network(
                       'https://cdnb.artstation.com/p/assets/images/images/032/796/739/large/rait-visual-works-genshin-impact-paimon.jpg?1607501613')
-                  : Image.network(image),
+                  : Image.network(character!.characterImage.image),
+            ),
+            Flexible(
+              flex: 2,
+              child: Container(),
             ),
           ],
         ),

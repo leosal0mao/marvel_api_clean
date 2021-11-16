@@ -1,13 +1,8 @@
+import 'package:marvel_api/app/core/http/response_data.dart';
+
 abstract class HttpAdapter {
-  Future<ResponseData> get({Map<String, dynamic>? queries});
-}
-
-class ResponseData {
-  final String statusCode;
-  final dynamic data;
-
-  ResponseData(
-    this.statusCode,
-    this.data,
-  );
+  Future<ResponseData> get({
+    required Map<String, dynamic> queries,
+    required String url,
+  });
 }

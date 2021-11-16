@@ -6,6 +6,6 @@ class Limit extends ValueObjects<int> {
 
   @override
   bool isValid() {
-    return value > 1 && value <= 100;
+    return value >= 1 && value <= 100;
   }
 }

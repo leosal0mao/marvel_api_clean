@@ -2,26 +2,26 @@ import '../../domain/entities/entities.dart';
 import '../helpers/errors/errors.dart';
 import 'mappers.dart';
 
-class CharactersMapper {
-  CharactersMapper._();
+class ResponseMapper {
+  ResponseMapper._();
 
-  static Characters fromMap(Map<String, dynamic> map) {
+  static ResponseCharacters fromMap(Map<String, dynamic> map) {
     try {
-      return Characters(
+      return ResponseCharacters(
           code: map['code'],
           status: map['status'],
           data: DataMapper.fromMap(map['data']));
     } catch (e, stack) {
-      throw CharactersMapperErrors(e.toString(), stack);
+      throw ResponseMapperErrors(e.toString(), stack);
     }
   }
 
-  static List<Characters> fromListMap(
+  static List<ResponseCharacters> fromListMap(
       {required List<Map<String, dynamic>> maps}) {
     try {
       return maps.map((map) => fromMap(map)).toList();
     } catch (e, stack) {
-      throw CharactersMapperErrors(e.toString(), stack);
+      throw ResponseMapperErrors(e.toString(), stack);
     }
   }
 }

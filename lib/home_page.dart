@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marvel_api/app/modules/characters/domain/dtos/dtos.dart';
+import 'package:marvel_api/app/modules/characters/domain/value_objects/limit.dart';
 import 'app/modules/characters/presenter/character/bloc/character_bloc_bloc.dart';
 
 import 'app/core/presenter/widgets/character_card_widget.dart';
@@ -15,6 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
   @override
   void initState() {
+    controller.add(FetchCharacterListEvent(
+        params: const CharactersDto(limit: Limit(value: 20), offset: 0)));
     super.initState();
   }
 
@@ -32,16 +36,15 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
           case CharacterBlocStateFailure:
             return const Center(child: Text('erro'));
           case CharacterBlocStateSucess:
+            state as CharacterBlocStateSucess;
             return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
-                    itemCount: 6,
+                    itemCount: state.responseData.data.characters?.length,
                     itemBuilder: (context, i) {
+                      final character = state.responseData.data.characters?[i];
                       return CharacterCardWidget(
-                          name: ' $i',
-                          description: 'description ',
-                          image: '',
-                          onTap: () {});
+                          character: character, onTap: () {});
                     }));
           default:
             return const Center(child: CircularProgressIndicator());

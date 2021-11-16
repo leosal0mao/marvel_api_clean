@@ -9,4 +9,10 @@ class Config {
   static String timestamp = DateTime.now().millisecondsSinceEpoch.toString();
   static String hash =
       md5.convert(utf8.encode('$timestamp$privateKey$publicKey')).toString();
+
+  static Map<String, String> queryParameters = {
+    'ts': timestamp,
+    'apikey': publicKey,
+    'hash': hash,
+  };
 }

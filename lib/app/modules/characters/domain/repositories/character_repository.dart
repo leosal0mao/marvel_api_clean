@@ -5,6 +5,6 @@ import '../dtos/dtos.dart';
 import '../entities/entities.dart';
 
 abstract class CharacterRepository {
-  Future<Either<Failure, Characters>> fetchCharacters(
+  Future<Either<Failure, ResponseCharacters>> fetchCharacters(
       {required CharactersDto params});
 }

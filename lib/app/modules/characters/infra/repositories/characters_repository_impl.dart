@@ -10,8 +10,9 @@ class CharacterRepositoryImpl implements CharacterRepository {
   final CharactersRemoteDatasource datasource;
 
   CharacterRepositoryImpl({required this.datasource});
+
   @override
-  Future<Either<Failure, Characters>> fetchCharacters(
+  Future<Either<Failure, ResponseCharacters>> fetchCharacters(
       {required CharactersDto params}) async {
     try {
       final response = await datasource.getAll(params: params.toMap());

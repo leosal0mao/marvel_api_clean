@@ -25,8 +25,8 @@ class CharactersDto extends Equatable {
   }
 
   Map<String, dynamic> toMap() => {
-        'name': name,
-        'nameStartsWith': nameStartsWith,
+        if (name != null) 'name': name,
+        if (nameStartsWith != null) 'nameStartsWith': nameStartsWith,
         'limit': limit.value,
         'offset': offset,
       };

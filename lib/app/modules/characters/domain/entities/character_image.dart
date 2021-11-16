@@ -8,6 +8,9 @@ class CharacterImage extends Equatable {
     required this.path,
     required this.extension,
   });
+
+  String get image => '$path.$extension';
+
   @override
   List<Object?> get props => [path, extension];
 }
