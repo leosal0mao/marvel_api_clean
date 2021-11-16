@@ -1,9 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marvel_api/app/modules/characters/external/datasources/character_remote_datasource_impl.dart';
-import 'package:marvel_api/home_page.dart';
-import '../../core/http/http_adapter_impl.dart';
 
+import 'package:marvel_api/home_page.dart';
+
+import '../../core/http/http_adapter_impl.dart';
 import 'domain/usecases/implementations/usecases_impl.dart';
+import 'external/datasources/character_remote_datasource_impl.dart';
 import 'infra/repositories/characters_repository_impl.dart';
 import 'presenter/character/bloc/character_bloc_bloc.dart';
 
