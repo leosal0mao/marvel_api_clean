@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:marvel_api/home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -9,7 +10,11 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+          textTheme: GoogleFonts.marvelTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          primarySwatch: Colors.blue),
       home: const HomePage(),
     ).modular();
   }

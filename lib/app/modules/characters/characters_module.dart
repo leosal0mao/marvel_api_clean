@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marvel_api/app/modules/characters/submodules/character_details/character_details_module.dart';
 
 import 'package:marvel_api/home_page.dart';
 
@@ -21,5 +22,6 @@ class CharacterModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (context, args) => const HomePage()),
+        ModuleRoute('/details', module: CharacterDetailsModule()),
       ];
 }

@@ -18,7 +18,7 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
   @override
   void initState() {
     controller.add(FetchCharacterListEvent(
-        params: const CharactersDto(limit: Limit(value: 20), offset: 0)));
+        params: const CharactersDto(limit: Limit(value: 20), offset: 10)));
     super.initState();
   }
 
@@ -29,8 +29,6 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
       bloc: controller,
       builder: (context, state) {
         switch (state.runtimeType) {
-          case CharacterBlocInitial:
-            return const Center(child: CircularProgressIndicator());
           case CharacterBlocStateLoading:
             return const Center(child: CircularProgressIndicator());
           case CharacterBlocStateFailure:
@@ -38,13 +36,18 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
           case CharacterBlocStateSucess:
             state as CharacterBlocStateSucess;
             return Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: ListView.builder(
                     itemCount: state.responseData.data.characters?.length,
                     itemBuilder: (context, i) {
                       final character = state.responseData.data.characters?[i];
+                      // return ShimmerCardWidget();
                       return CharacterCardWidget(
-                          character: character, onTap: () {});
+                          character: character,
+                          onTap: () {
+                            Modular.to
+                                .pushNamed('/details', arguments: character);
+                          });
                     }));
           default:
             return const Center(child: CircularProgressIndicator());
