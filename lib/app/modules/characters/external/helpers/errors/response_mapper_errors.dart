@@ -1,4 +1,4 @@
-import 'package:marvel_api/app/core/helpers/errors/failure.dart';
+import '../../../../../core/helpers/errors/failure.dart';
 
 class ResponseMapperErrors extends Failure {
   ResponseMapperErrors(String message, StackTrace stackTrace)

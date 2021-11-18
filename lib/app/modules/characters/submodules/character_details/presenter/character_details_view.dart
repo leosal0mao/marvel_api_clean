@@ -60,25 +60,12 @@ class _CharacterDetailsViewState extends State<CharacterDetailsView> {
             ),
           ),
           SliverList(
-              delegate: SliverChildListDelegate(
-            const <Widget>[
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-              ComicListTile(),
-            ],
-          )),
+            delegate: SliverChildListDelegate(
+              widget.characterDetails.characterComics.items
+                  .map((e) => ComicListTile(comicName: e.name))
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );

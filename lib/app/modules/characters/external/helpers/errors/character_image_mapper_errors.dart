@@ -1,4 +1,4 @@
-import 'package:marvel_api/app/core/helpers/errors/failure.dart';
+import '../../../../../core/helpers/errors/failure.dart';
 
 class CharacterImageMapperErrors extends Failure {
   CharacterImageMapperErrors(String message, StackTrace stackTrace)

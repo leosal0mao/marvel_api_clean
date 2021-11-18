@@ -8,11 +8,11 @@ class CharacterMapper {
   static Character fromMap(Map<String, dynamic> map) {
     try {
       return Character(
-        id: map['id'],
-        name: map['name'],
-        description: map['description'],
-        characterImage: CharacterImageMapper.fromMap(map['thumbnail']),
-      );
+          id: map['id'],
+          name: map['name'],
+          description: map['description'],
+          characterImage: CharacterImageMapper.fromMap(map['thumbnail']),
+          characterComics: CharacterComicsMapper.fromMap(map['comics']));
     } catch (e, stack) {
       throw CharacterMapperErrors(e.toString(), stack);
     }
