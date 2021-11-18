@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
           textTheme: GoogleFonts.marvelTextTheme(
             Theme.of(context).textTheme,
           ),
-          primarySwatch: Colors.blue),
+          primarySwatch: Colors.red),
       home: const HomePage(),
     ).modular();
   }

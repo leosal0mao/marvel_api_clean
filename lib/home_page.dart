@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_api/app/modules/characters/domain/dtos/dtos.dart';
 import 'package:marvel_api/app/modules/characters/domain/value_objects/limit.dart';
+import 'app/core/presenter/widgets/shimmer_card_widget.dart';
 import 'app/modules/characters/presenter/character/bloc/character_bloc_bloc.dart';
 
 import 'app/core/presenter/widgets/character_card_widget.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
   @override
   void initState() {
     controller.add(FetchCharacterListEvent(
-        params: const CharactersDto(limit: Limit(value: 20), offset: 10)));
+        params: const CharactersDto(limit: Limit(value: 20), offset: 60)));
     super.initState();
   }
 
@@ -30,25 +31,31 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
       builder: (context, state) {
         switch (state.runtimeType) {
           case CharacterBlocStateLoading:
-            return const Center(child: CircularProgressIndicator());
+            return ListView.separated(
+              itemCount: (MediaQuery.of(context).size.height ~/ 220.0),
+              padding: const EdgeInsets.all(10.0),
+              shrinkWrap: true,
+              separatorBuilder: (_, __) => const SizedBox(
+                height: 25,
+              ),
+              itemBuilder: (_, __) => const CharacterListShimmer(),
+            );
           case CharacterBlocStateFailure:
             return const Center(child: Text('erro'));
           case CharacterBlocStateSucess:
             state as CharacterBlocStateSucess;
-            return Padding(
+            return ListView.builder(
+                itemCount: state.responseData.data.characters?.length,
                 padding: const EdgeInsets.all(10.0),
-                child: ListView.builder(
-                    itemCount: state.responseData.data.characters?.length,
-                    itemBuilder: (context, i) {
-                      final character = state.responseData.data.characters?[i];
-                      // return ShimmerCardWidget();
-                      return CharacterCardWidget(
-                          character: character,
-                          onTap: () {
-                            Modular.to
-                                .pushNamed('/details', arguments: character);
-                          });
-                    }));
+                itemBuilder: (context, i) {
+                  final character = state.responseData.data.characters?[i];
+                  // return ShimmerCardWidget();
+                  return CharacterCardWidget(
+                      character: character,
+                      onTap: () {
+                        Modular.to.pushNamed('/details', arguments: character);
+                      });
+                });
           default:
             return const Center(child: CircularProgressIndicator());
         }
