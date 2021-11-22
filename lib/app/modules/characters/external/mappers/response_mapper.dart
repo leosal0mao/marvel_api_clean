@@ -5,9 +5,9 @@ import 'mappers.dart';
 class ResponseMapper {
   ResponseMapper._();
 
-  static ResponseCharacters fromMap(Map<String, dynamic> map) {
+  static ResponseCharacter fromMap(Map<String, dynamic> map) {
     try {
-      return ResponseCharacters(
+      return ResponseCharacter(
           code: map['code'],
           status: map['status'],
           data: DataMapper.fromMap(map['data']));
@@ -16,7 +16,7 @@ class ResponseMapper {
     }
   }
 
-  static List<ResponseCharacters> fromListMap(
+  static List<ResponseCharacter> fromListMap(
       {required List<Map<String, dynamic>> maps}) {
     try {
       return maps.map((map) => fromMap(map)).toList();

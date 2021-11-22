@@ -12,7 +12,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
   CharacterRepositoryImpl({required this.datasource});
 
   @override
-  Future<Either<Failure, ResponseCharacters>> fetchCharacters(
+  Future<Either<Failure, ResponseCharacter>> fetchCharacters(
       {required CharactersDto params}) async {
     try {
       final response = await datasource.getAll(params: params.toMap());

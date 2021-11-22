@@ -17,23 +17,24 @@ class CharacterBlocBloc extends Bloc<CharacterBlocEvent, CharacterBlocState> {
     on<FetchCharacterListEvent>((event, emit) async {
       emit(CharacterBlocStateLoading());
       var response = await usecase(params: event.params);
-      response.fold(
-        (left) => emit(CharacterBlocStateFailure(left.message)),
-        (right) => emit(CharacterBlocStateSucess(responseData: right)),
+      final result = response.fold(
+        (left) => (CharacterBlocStateFailure(left.message)),
+        (right) => (CharacterBlocStateSucess(responseData: right)),
       );
+      emit(result);
     });
 
-    // on<PaginateCharactersEvent>((event, emit) async {
-    //   emit((state as CharacterBlocStateSucess).copyWith(isLoading: true));
-    //   var response = await usecase(params: event.params);
-    //   response.fold(
-    //     (left) => null,
-    //     (right) {
-    //       return CharacterBlocStateSucess(
-    //           characters: (state as CharacterBlocStateSucess).characters
-    //             ..addAll(right as Iterable<ResponseCharacters>));
-    //     },
-    //   );
-    // });
+    on<PaginateCharactersEvent>((event, emit) async {
+      emit((state as CharacterBlocStateSucess).copyWith(isLoading: true));
+      var response = await usecase(params: event.params);
+      final result = response.fold(
+        (left) => (CharacterBlocStateFailure(left.message)),
+        (right) => CharacterBlocStateSucess(
+          responseData: (state as CharacterBlocStateSucess).responseData
+            ..data.characters!.addAll(right.data.characters ?? []),
+        ),
+      );
+      emit(result);
+    });
   }
 }

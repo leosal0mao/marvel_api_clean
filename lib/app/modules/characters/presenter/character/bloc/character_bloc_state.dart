@@ -22,7 +22,7 @@ class CharacterBlocStateFailure extends CharacterBlocState {
 }
 
 class CharacterBlocStateSucess extends CharacterBlocState {
-  final ResponseCharacters responseData;
+  final ResponseCharacter responseData;
   final bool? isLoading;
 
   CharacterBlocStateSucess({
@@ -31,7 +31,7 @@ class CharacterBlocStateSucess extends CharacterBlocState {
   });
 
   CharacterBlocStateSucess copyWith({
-    ResponseCharacters? responseData,
+    ResponseCharacter? responseData,
     bool? isLoading,
   }) {
     return CharacterBlocStateSucess(

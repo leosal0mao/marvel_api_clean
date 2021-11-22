@@ -4,7 +4,7 @@ import 'package:marvel_api/app/core/http/errors/http_error.dart';
 import '../../../../core/helpers/errors/datasource_error.dart';
 import '../../../../core/helpers/errors/failure.dart';
 import '../../../../core/http/http_adapter.dart';
-import '../../domain/entities/characters.dart';
+import '../../domain/entities/response_characters.dart';
 import '../../infra/datasources/characters_remote_datasource.dart';
 import '../mappers/response_mapper.dart';
 
@@ -13,7 +13,7 @@ class CharacterRemoteDatasourceImpl implements CharactersRemoteDatasource {
 
   CharacterRemoteDatasourceImpl({required this.client});
   @override
-  Future<ResponseCharacters> getAll(
+  Future<ResponseCharacter> getAll(
       {required Map<String, dynamic> params}) async {
     try {
       final response = await client.get(

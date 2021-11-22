@@ -4,6 +4,6 @@ import '../../dtos/dtos.dart';
 import '../../entities/entities.dart';
 
 abstract class FetchCharactersUsecase {
-  Future<Either<Failure, ResponseCharacters>> call(
+  Future<Either<Failure, ResponseCharacter>> call(
       {required CharactersDto params});
 }

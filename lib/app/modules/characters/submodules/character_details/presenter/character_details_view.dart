@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:marvel_api/app/modules/characters/domain/entities/entities.dart';
-import 'package:marvel_api/app/modules/characters/submodules/character_details/presenter/widgets/character_appbar_widget.dart';
-import 'package:marvel_api/app/modules/characters/submodules/character_details/presenter/widgets/comic_list_tile.dart';
+import '../../../domain/entities/entities.dart';
+import 'widgets/character_appbar_widget.dart';
+import 'widgets/comic_list_tile.dart';
 
 class CharacterDetailsView extends StatefulWidget {
   final Character characterDetails;

@@ -12,7 +12,7 @@ class FetchCharactersUsecaseImpl extends FetchCharactersUsecase {
 
   FetchCharactersUsecaseImpl({required this.repository});
   @override
-  Future<Either<Failure, ResponseCharacters>> call(
+  Future<Either<Failure, ResponseCharacter>> call(
       {required CharactersDto params}) {
     if (!params.limit.isValid()) {
       return Future.value(Left(DomainError(

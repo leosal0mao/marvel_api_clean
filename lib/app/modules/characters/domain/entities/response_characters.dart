@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'data.dart';
 
-class ResponseCharacters extends Equatable {
+class ResponseCharacter extends Equatable {
   final int code;
   final String status;
   final Data data;
 
-  const ResponseCharacters({
+  const ResponseCharacter({
     required this.code,
     required this.status,
     required this.data,
