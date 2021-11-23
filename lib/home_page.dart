@@ -127,7 +127,7 @@ class _HomePageState extends ModularState<HomePage, CharacterBlocBloc> {
                           : CharacterCardWidget(
                               character: character,
                               onTap: () {
-                                Modular.to.pushNamed('/details',
+                                Modular.to.pushNamed('/details/',
                                     arguments: character);
                               });
                     });
