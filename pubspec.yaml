@@ -22,11 +22,14 @@ dependencies:
   flutter_modular: ^4.2.0
   crypto: ^3.0.1
   flutter_dotenv: ^5.0.2
+  
 
 dev_dependencies:
+  
   flutter_test:
-    sdk: flutter
-
+    sdk: flutter 
+  mocktail: ^0.2.0
+  faker: ^2.0.0
   flutter_lints: ^1.0.0
 flutter:
 
