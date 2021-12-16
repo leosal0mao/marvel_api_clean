@@ -1,4 +1,4 @@
-import '../../../../core/value_objects/value_objects.dart';
+import '../../../../core/domain/value_objects/value_objects.dart';
 
 class Limit extends ValueObjects<int> {
   const Limit({required int value})
