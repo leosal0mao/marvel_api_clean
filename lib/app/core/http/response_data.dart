@@ -2,8 +2,8 @@ class ResponseData {
   final String statusCode;
   final dynamic data;
 
-  ResponseData(
-    this.statusCode,
-    this.data,
-  );
+  ResponseData({
+    required this.statusCode,
+    required this.data,
+  });
 }

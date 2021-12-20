@@ -15,7 +15,8 @@ class HttpAdapterImpl implements HttpAdapter {
     try {
       final response = await dio.get(url, queryParameters: queries);
 
-      return ResponseData(response.statusCode.toString(), response.data);
+      return ResponseData(
+          statusCode: response.statusCode.toString(), data: response.data);
     } on DioError catch (e, stack) {
       throw HttpError(
         statusCode: e.response!.statusCode.toString(),

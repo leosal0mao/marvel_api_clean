@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marvel_api/app/core/helpers/errors/failure.dart';
 import 'package:marvel_api/app/modules/characters/domain/dtos/dtos.dart';
