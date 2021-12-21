@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -17,8 +15,6 @@ export 'package:mocktail/mocktail.dart';
 class CharacterRepositoryMock extends Mock implements CharacterRepository {}
 
 class CharactersDtoFake extends Fake implements CharactersDto {}
-
-class CharacterDataFake extends Fake implements CharacterData {}
 
 class ResponseCharacterFake extends Fake implements ResponseCharacter {}
 
